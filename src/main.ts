@@ -1,7 +1,36 @@
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { bootstrapApplication } from "@angular/platform-browser";
+import { AppComponent } from "./app/app.component";
+import { Route, provideRouter } from "@angular/router";
+import { provideServiceWorker } from "@angular/service-worker";
+import { isDevMode } from "@angular/core";
 
-import { AppModule } from './app/app.module';
+const routes: Route[] = [{
+  path: 'login',
+  loadComponent: () => import('@app').then(c => c.LoginPageComponent),
+},
+{
+  path: "",
+  loadComponent: () => import('@app').then(c => c.NoteListPageComponent)
+},
+{
+  path: "create",
+  loadComponent: () => import('@app').then(c => c.NoteCreatePageComponent)
+},
+{
+  path: "details/:note-id",
+  loadComponent: () => import('@app').then(c => c.NoteDetailPageComponent)
+},
+{
+  path: "**",
+  redirectTo: ""
+}]
 
-
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideRouter(routes),
+    provideServiceWorker('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      registrationStrategy: 'registerWhenStable:30000'
+    })
+  ]
+});

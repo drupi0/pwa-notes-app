@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
+import { Route, RouterModule, RouterOutlet, provideRouter } from '@angular/router';
+import { provideServiceWorker } from '@angular/service-worker';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  template: `<router-outlet></router-outlet>`,
+  standalone: true,
+  imports: [RouterModule]
 })
 export class AppComponent {
-  title = 'pwa-notes-app';
 }
