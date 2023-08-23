@@ -13,14 +13,6 @@ const routes: Route[] = [{
   loadComponent: () => import('@app').then(c => c.NoteListPageComponent)
 },
 {
-  path: "create",
-  loadComponent: () => import('@app').then(c => c.NoteCreatePageComponent)
-},
-{
-  path: "details/:note-id",
-  loadComponent: () => import('@app').then(c => c.NoteDetailPageComponent)
-},
-{
   path: "**",
   redirectTo: ""
 }]

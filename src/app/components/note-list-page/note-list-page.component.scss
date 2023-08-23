@@ -1,11 +1,22 @@
 .header-text {
-    @apply ps-5 pe-5 py-5 font-sans font-medium text-4xl dark:text-slate-300 flex-1 whitespace-nowrap;
+    @apply pe-5 font-sans font-black text-3xl whitespace-nowrap;
 }
 
 .side-panel {
-    @apply hidden md:flex flex-col h-screen border-0 dark:bg-black w-full max-w-sm p-5 transition-all;
+    @apply border-e-2 border-zinc-500 text-white hidden md:flex flex-col h-screen border-0 transition-all;
+
+    background-color: #262729;
+    min-width: 300px !important;
 }
 
-.title-line {
-    @apply first-line:font-bold first-line:text-3xl first-line:leading-loose first-line:text-yellow-100;
+.main-panel {
+    @apply flex flex-col w-full h-screen text-white;
+    background-color: #202123;
+
+}
+
+.note-item {
+    @apply rounded-md p-4 mx-1 font-bold my-1 text-left text-ellipsis whitespace-nowrap overflow-hidden;
+    background-color: #393b3f;
+    min-height: 60px;
 }

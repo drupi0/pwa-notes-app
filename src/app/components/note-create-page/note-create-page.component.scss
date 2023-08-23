@@ -1,0 +1,15 @@
+
+.title-line {
+    @apply px-12 pt-10 first-line:font-bold first-line:leading-loose bg-transparent outline-none resize-none;
+
+     &::first-line {
+        @apply text-yellow-100 text-3xl;
+     }
+
+     width: 100%;
+     height: calc(100vh - 60px);
+}
+
+.top-panel {
+    @apply flex min-h-fit pt-3 px-3;
+}

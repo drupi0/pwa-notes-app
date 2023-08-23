@@ -25,7 +25,8 @@
     ],
     "paths": {
       "@app": ["src/app/components"]
-    }
+    },
+    "strictPropertyInitialization": false,
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
